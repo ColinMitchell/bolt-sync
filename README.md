@@ -1,6 +1,6 @@
 # Bolt Sync
 
-**Bolt Sync** is a WordPress Multisite plugin that keeps posts synchronized across every site in your network. When you update a page on one site, Bolt Sync propagates the change — content, ACF fields, taxonomies, SEO meta, and featured images — to all linked counterparts automatically, using async background jobs so the editor is never blocked.
+Bolt Sync is a WordPress Multisite plugin that keeps posts synchronized across every site in your network. When you update a page on one site, Bolt Sync propagates the change (content, ACF fields, taxonomies, SEO meta, and images) to all linked posts automatically using async background jobs.
 
 ---
 
@@ -9,7 +9,7 @@
 - **Block editor panel** — a clean sidebar panel on every post/page lets you link, unlink, and manage sync groups without leaving the editor
 - **Async sync via Action Scheduler** — saves queue a background job rather than running inline, keeping the WordPress admin fast
 - **Full content sync** — title, content, slug, status, featured image, ACF fields, taxonomy terms, and Yoast SEO meta
-- **Post validation** — after each sync, a background validator confirms all linked posts match; a green "All N posts in sync ✓" badge appears in the sidebar when clean
+- **Post validation** — after each sync, a background validator confirms all linked posts match
 - **Join / Leave / Delete group** — fine-grained control; leaving removes only your site's post from the group while others remain linked
 - **Speculative path preview** — toggle a remote site ON and immediately see where the duplicate will be created, before saving
 - **Sync status polling** — a live "Syncing…" indicator with countdown ETA while the background job runs
