@@ -1,0 +1,53 @@
+{
+    "name": "colinmitchell/bolt-sync",
+    "type": "wordpress-plugin",
+    "description": "Bolt Sync — async cross-site post synchronisation for WordPress Multisite.",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/colinmitchell/bolt-sync",
+    "version" : "1.3.0",
+    "support": {
+        "source": "https://github.com/colinmitchell/bolt-sync",
+        "docs": "https://github.com/colinmitchell/bolt-sync/blob/main/README.md"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.3"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true,
+            "pestphp/pest-plugin": true,
+            "alleyinteractive/composer-wordpress-autoloader": true
+        }
+    },
+    "extra": {
+        "wordpress-install-dir": "wordpress"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.3",
+        "woocommerce/action-scheduler": "^3.8"
+    },
+    "require-dev": {
+        "automattic/vipwpcs": "^3.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "php-coveralls/php-coveralls": "^2.5",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "wp-coding-standards/wpcs": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BoltSync\\Admin\\": "Admin/",
+            "BoltSync\\Inc\\": "Inc/"
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint-php8": "phpcs -p --standard=PHPCompatibilityWP --runtime-set testVersion 8.0- --extensions=php --ignore='vendor/,wordpress/,node_modules/' .",
+        "format": "phpcbf"
+    }
+}

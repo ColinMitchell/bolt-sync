@@ -1,0 +1,47 @@
+{
+	"name": "bolt-sync",
+	"version": "1.0.0",
+	"description": "Adds the functionality to sync WordPress posts between multi-network sites.",
+	"author": "cmitchell",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"lint": "npm-run-all lint:*",
+		"lint:php": "composer lint",
+		"lint:css": "wp-scripts lint-style ./src/*.scss ./admin/*.css",
+		"lint:js": "wp-scripts lint-js ./src",
+		"format": "npm-run-all format:*",
+		"format:php": "composer format",
+		"format:js": "npm run lint:js -- --fix",
+		"format:css": "npm run lint:css -- --fix",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"env": "wp-env",
+		"test:php": "npm run composer test",
+		"test:watch": "npm run composer test:watch",
+		"composer": "wp-env run phpunit composer --working-dir=/var/www/html/web/app/plugins/bolt-sync",
+		"prezip": "npm-run-all prezip:*",
+		"prezip:js": "npm run build",
+		"zip": "npm run prezip && node makeZip.js"
+	},
+	"devDependencies": {
+		"@wordpress/components": "^30.0.0",
+		"@wordpress/core-data": "^7.27.0",
+		"@wordpress/data": "^10.27.0",
+		"@wordpress/env": "^10.27.0",
+		"@wordpress/scripts": "^30.20.0"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^7.27.0",
+		"@wordpress/edit-post": "^8.27.0",
+		"@wordpress/element": "^6.27.0",
+		"@wordpress/hooks": "^4.27.0",
+		"@wordpress/icons": "^10.27.0",
+		"@wordpress/plugins": "^7.27.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-select": "^5.10.2"
+	}
+}
